@@ -3,6 +3,7 @@ from config.model_config import config
 from src.pretrain.io.bert_processor import BertProcessor
 from src.pretrain.model.bert_for_multi_label import BertForMultiLable
 from src.utils.tools import convert_dict_to_list
+from src.data_preprocessing.preprocess.preprocessor import EnglishPreProcessor
 from argparse import ArgumentParser
 
 
@@ -60,7 +61,9 @@ def main():
 	parser.add_argument("--option", default='term', type=str)
 	args = parser.parse_args()
 
-	keywords = predict_n_keywords(args.text, args.model, args.vocab_path, args.max_seq_length, args.do_lower_case, args.n, args.option)
+	preprocessed_text = EnglishPreProcessor.preprocess(args.text)
+
+	keywords = predict_n_keywords(preprocessed_text, args.model, args.vocab_path, args.max_seq_length, args.do_lower_case, args.n, args.option)
 	print(keywords)
 
 if __name__ == "__main__":
