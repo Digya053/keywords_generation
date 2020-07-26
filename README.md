@@ -61,7 +61,6 @@ This repo generates the top ten keywords suggestion for earth science abstract d
 │       └── keywords_generation.html
 ├── README.md
 └── requirements.txt
-
 ```
 #### Steps to use the code:
 1. Download earth science dataset from Common Metadata Repository (CMR).
