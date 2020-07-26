@@ -75,11 +75,13 @@ The csv file will be saved to pybert/data/data_tabular.csv.
 
 3. Run the notebooks present at 'pybert/notebooks/data_analysis_and_preprocessing' to obtain all the datasets required for multilabel classification.
 
-4. The fine-tuned models for BertMultiLabelClassification using 'bert', 'fast-bert' and 'scibert' pretrained models have been prepared taking reference from [Bert-Multi-Label-Text-Classification](https://github.com/lonePatient/Bert-Multi-Label-Text-Classification) and [fast-bert](https://github.com/kaushaltrivedi/fast-bert). All the saved models and notebooks for creating them are available [here](https://drive.google.com/drive/folders/1lWEodLbNufo8u5k-DMq27ctdO0NoGFY4?usp=sharing).
+4. The fine-tuned models for BertMultiLabelClassification using 'bert', 'fast-bert' and 'scibert' pretrained models have been prepared taking reference from [Bert-Multi-Label-Text-Classification](https://github.com/lonePatient/Bert-Multi-Label-Text-Classification) and [fast-bert](https://github.com/kaushaltrivedi/fast-bert). The saved models and notebooks for training fast-bert are available [here](https://drive.google.com/drive/folders/1lWEodLbNufo8u5k-DMq27ctdO0NoGFY4?usp=sharing).
 
 5. Copy the saved models from 'used-models/saved' to 'pybert/models/saved'.
 
-6. For predicting only one text, run:
+6. Download models: 'bert-base-uncased' and 'scibert-scivocab-uncased' from [bert-github](https://github.com/google-research/bert) and [scibert-github](https://github.com/allenai/scibert). Rename it to 'bert-base-uncased' and 'scibert-base-uncased' respectively, and place it inside 'pybert/models/pretrained'.
+
+7. For predicting only one text, run:
 ```
 cd pybert
 python predict.py --text="Type text you want to predict" --model="Model you want to use from saved_models" --vocab_path='vocab path you want to use (can be 'bert_vocab_path' or 'scibert_vocab_path') ----max_seq_length = "maximum length of tokens" --do_lower_case=True(lower case) or False(as the words are present) --n="no of keywords to be extracted" --option="whether you want to extract keywords in term position, most depth position or mixed position"
@@ -90,7 +92,7 @@ cd pybert
 python predict.py --text="Atmospheric winds" --model="bert_term_30" --vocab_path='bert_vocab_path' --option="term"
 ```
 
-7. For running the web:
+8. For running the web:
 ```
 cd pybert
 export FLASK_APP=main.py
